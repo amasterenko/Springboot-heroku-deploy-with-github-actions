@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 public class Controller {
 
@@ -14,6 +16,6 @@ public class Controller {
     @GetMapping("/data")
     public ResponseEntity<String> getData() {
         LOGGER.info("Sending response");
-        return ResponseEntity.ok("123");
+        return ResponseEntity.ok(UUID.randomUUID().toString());
     }
 }
