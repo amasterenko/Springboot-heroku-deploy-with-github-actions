@@ -21,7 +21,6 @@ jobs:
       run: mvn clean package
     - name: Test Report
       uses: actions/upload-artifact@v3
-      if: success() || failure()
       with:
         name: SpringBoot Report               # Name of the folder
         path: target/site/jacoco/           # Path to test results
