@@ -53,7 +53,7 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${maven.jacoco.version}</version>
                 <configuration>
-                    <skip>flase</skip>
+                    <skip>false</skip>
                 </configuration>
                 <executions>
                     <execution>
@@ -73,37 +73,14 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>default-prepare-agent-integration</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>prepare-agent-integration</goal>
-                        </goals>
-                        <configuration>
-                            <append>true</append>
-                            <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
-                            <propertyName>failsafeArgLine</propertyName>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>default-report</id>
-                        <phase>site</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                         <configuration>
-                            <title>Report for ${project.name}</title>
-                            <footer>Test report - ${project.inceptionYear}</footer>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>default-report-integration</id>
-                        <phase>site</phase>
-                        <goals>
-                            <goal>report-integration</goal>
-                        </goals>
-                        <configuration>
-                            <title>Report integration for ${project.name}</title>
-                            <footer>Test - ${project.inceptionYear}</footer>
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco.exec</dataFile>
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
