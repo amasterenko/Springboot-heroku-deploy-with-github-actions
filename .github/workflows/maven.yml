@@ -24,6 +24,17 @@ jobs:
       with:
         name: SpringBoot Report               # Name of the folder
         path: target/site/jacoco/           # Path to test results
-
+    - name: Login to Heroku Registry
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
+      run: heroku container:login
+    - name: Build and push
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
+      run: heroku container:push -a ${{ vars.HEROKU_APP_NAME }} web
+    - name: Release to Heroku
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
+      run: heroku container:release -a ${{ vars.HEROKU_APP_NAME }} web
           
           

@@ -18,7 +18,7 @@ class ControllerTest {
 
     @Test
     void getData() throws Exception {
-        this.mockMvc.perform(get("/data")).andDo(print()).andExpect(status().isOk())
+        this.mockMvc.perform(get("/guids")).andDo(print()).andExpect(status().isOk())
             .andExpect(jsonPath("$").isNotEmpty());
     }
 }

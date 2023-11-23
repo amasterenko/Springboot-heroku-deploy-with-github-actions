@@ -13,9 +13,10 @@ public class Controller {
 
     private static final Logger LOGGER = LoggerFactory.getLogger("Controller");
 
-    @GetMapping("/data")
+    @GetMapping("/guids")
     public ResponseEntity<String> getData() {
-        LOGGER.info("Sending response");
-        return ResponseEntity.ok(UUID.randomUUID().toString());
+        final var guid = UUID.randomUUID().toString();
+        LOGGER.info("Sending response: {}", guid);
+        return ResponseEntity.ok(guid);
     }
 }
