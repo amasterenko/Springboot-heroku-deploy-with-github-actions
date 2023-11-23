@@ -6,7 +6,7 @@
 
     <groupId>groupId</groupId>
     <artifactId>test-app</artifactId>
-    <version>SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -17,7 +17,7 @@
     <name>test-app</name>
     <description>test deploy app</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
         <maven.jacoco.version>0.8.10</maven.jacoco.version>
     </properties>
@@ -44,7 +44,7 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>build-info</goal>
+                            <goal>repackage</goal>
                         </goals>
                     </execution>
                 </executions>
